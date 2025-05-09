@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Global Grocery Lead Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0fdf4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-box {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+    .form-box img {
+      width: 100px;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #065f46;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.25rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+    }
+    input[type="submit"] {
+      background-color: #10b981;
+      color: white;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    input[type="submit"]:hover {
+      background-color: #059669;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Africa_map_yellow.png" alt="Logo">
+    <h2>Contact Global Grocery</h2>
+
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+      <input type="hidden" name="oid" value="00DgL000002Z7DZ">
+      <input type="hidden" name="retURL" value="https://www.salesforce.com">
+
+      <label for="first_name">First Name</label>
+      <input type="text" id="first_name" name="first_name" required>
+
+      <label for="last_name">Last Name</label>
+      <input type="text" id="last_name" name="last_name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" required>
+
+      <label for="lead_source">Lead Source</label>
+      <select id="lead_source" name="lead_source" required>
+        <option value="">--Select--</option>
+        <option value="Web">Web</option>
+        <option value="Referral">Referral</option>
+        <option value="Bluesky">Bluesky</option>
+      </select>
+
+      <label for="support_plan__c">Support Plan</label>
+      <select id="support_plan__c" name="support_plan__c" required>
+        <option value="">--Select Plan--</option>
+        <option value="Premium">Premium</option>
+        <option value="Standard">Standard</option>
+        <option value="Basic">Basic</option>
+      </select>
+
+      <label for="budget_confirmed__c">
+        <input type="checkbox" id="budget_confirmed__c" name="budget_confirmed__c" value="true">
+        Budget Confirmed
+      </label>
+
+      <label for="company_size__c">Company Size</label>
+      <input type="number" id="company_size__c" name="company_size__c" min="1">
+
+      <input type="submit" value="Submit Lead">
+    </form>
+  </div>
+</body>
+</html>
