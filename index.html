@@ -2,104 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Global Grocery Lead Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Grocery Web-to-Lead Form</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0fdf4;
+      background-color: #ecfdf5;
+      color: #065f46;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
-    .form-box {
-      background-color: white;
+    .form-container {
+      background: white;
       padding: 2rem;
       border-radius: 1rem;
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       max-width: 600px;
-      width: 100%;
+      width: 90%;
     }
-    .form-box img {
-      width: 100px;
-      margin: 0 auto 1rem;
-      display: block;
-    }
-    h2 {
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
       text-align: center;
-      margin-bottom: 1rem;
-      color: #065f46;
     }
-    label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-    input, select {
+    input[type="text"], input[type="email"], input[type="tel"], select, textarea {
       width: 100%;
-      padding: 0.6rem;
-      margin-top: 0.25rem;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ddd;
       border-radius: 0.5rem;
-      border: 1px solid #d1d5db;
+      font-size: 1rem;
     }
-    input[type="submit"] {
+    button {
+      width: 100%;
+      padding: 1rem;
       background-color: #10b981;
       color: white;
-      margin-top: 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
       cursor: pointer;
-      font-weight: bold;
     }
-    input[type="submit"]:hover {
+    button:hover {
       background-color: #059669;
     }
   </style>
 </head>
 <body>
-  <div class="form-box">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Africa_map_yellow.png" alt="Logo">
-    <h2>Contact Global Grocery</h2>
-
+  <div class="form-container">
+    <h1>Contact Us – Global Grocery</h1>
     <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+      <!-- Salesforce Hidden Fields -->
       <input type="hidden" name="oid" value="00DgL000002Z7DZ">
-      <input type="hidden" name="retURL" value="https://www.salesforce.com">
+      <input type="hidden" name="retURL" value="https://your-username.github.io/globalgrocery-webform/thank-you.html">
 
-      <label for="first_name">First Name</label>
-      <input type="text" id="first_name" name="first_name" required>
+      <!-- Lead Fields -->
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" name="first_name" required>
 
-      <label for="last_name">Last Name</label>
-      <input type="text" id="last_name" name="last_name" required>
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" name="last_name" required>
 
       <label for="email">Email</label>
       <input type="email" id="email" name="email" required>
 
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" required>
+
       <label for="company">Company</label>
       <input type="text" id="company" name="company" required>
 
-      <label for="lead_source">Lead Source</label>
-      <select id="lead_source" name="lead_source" required>
-        <option value="">--Select--</option>
+      <label for="leadSource">Lead Source</label>
+      <select name="lead_source" id="leadSource" required>
         <option value="Web">Web</option>
         <option value="Referral">Referral</option>
         <option value="Bluesky">Bluesky</option>
       </select>
 
-      <label for="support_plan__c">Support Plan</label>
-      <select id="support_plan__c" name="support_plan__c" required>
-        <option value="">--Select Plan--</option>
-        <option value="Premium">Premium</option>
-        <option value="Standard">Standard</option>
-        <option value="Basic">Basic</option>
-      </select>
+      <label for="budgetConfirmed">Budget Confirmed</label>
+      <input type="checkbox" id="budgetConfirmed" name="budget_confirmed">
 
-      <label for="budget_confirmed__c">
-        <input type="checkbox" id="budget_confirmed__c" name="budget_confirmed__c" value="true">
-        Budget Confirmed
-      </label>
-
-      <label for="company_size__c">Company Size</label>
-      <input type="number" id="company_size__c" name="company_size__c" min="1">
-
-      <input type="submit" value="Submit Lead">
+      <button type="submit">Submit</button>
     </form>
   </div>
 </body>
